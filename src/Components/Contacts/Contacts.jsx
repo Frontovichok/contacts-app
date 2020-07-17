@@ -8,7 +8,7 @@ function Contacts(props) {
 		props.getContacts()
 	}, [])
 	if (!props.isAuth) {
-		return <Redirect to="login" />
+		return <Redirect to="/" />
 	}
 	return (
 		<div>

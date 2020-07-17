@@ -35,5 +35,24 @@ export function login(email, password) {
 		}
 	}
 }
+export function register(firstName, secondName, email, password) {
+	return async (dispatch) => {
+		const response = await authAPI.register(
+			firstName,
+			secondName,
+			email,
+			password
+		)
+		if (!response.error) {
+			dispatch(setAuth())
+		} else {
+			dispatch(
+				stopSubmit('register', {
+					_error: response.errorMessage,
+				})
+			)
+		}
+	}
+}
 
 export default authReducer

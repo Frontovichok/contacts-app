@@ -3,7 +3,7 @@
 	padding: 20px;
 }
 .item {
-	font-size: 14px;
+	font-size: 15px;
 	margin-bottom: 4px;
 	padding: 3px;
 	white-space: nowrap;
@@ -13,6 +13,7 @@
 	background-color: #1f8fff1f;
 }
 .item a {
+	margin-left: 5px;
 	color: blue;
 	text-decoration: none;
 }

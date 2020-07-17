@@ -6,19 +6,19 @@ const instance = axios.create({
 })
 
 export const authAPI = {
-	register: async (email, password, firstName, lastName) => {
+	register: async (firstName, secondName, email, password) => {
 		try {
 			const { data } = await instance.post('register', {
+				firstName,
+				secondName,
 				email,
 				password,
-				firstName,
-				lastName,
 			})
 
 			instance.defaults.headers['Authorization'] = `Bearer ${data.accessToken}`
 			return data
 		} catch (error) {
-			console.warn(error.response.data)
+			return { error: true, errorMessage: error.response.data }
 		}
 	},
 

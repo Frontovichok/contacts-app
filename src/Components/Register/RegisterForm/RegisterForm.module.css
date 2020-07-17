@@ -1,11 +1,11 @@
 .summaryError {
-	color: red;
 	margin: 10px 0;
+	color: red;
 }
 .fieldContainer {
 	margin-bottom: 10px;
 }
-.loginButton {
+.registerButton {
 	border-radius: 3px;
 	background-color: #5181b8;
 	padding: 7px 16px 8px;

@@ -8,8 +8,8 @@ function NavBar() {
 		<nav className={styles.nav}>
 			<div className={styles.item}>
 				<Icon name="sign-in" />
-				<NavLink to="/login" activeClassName={styles.active}>
-					Логин
+				<NavLink exact to="/" activeClassName={styles.active}>
+					Вход
 				</NavLink>
 			</div>
 			<div className={styles.item}>
