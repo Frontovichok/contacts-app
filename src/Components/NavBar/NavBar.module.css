@@ -1,0 +1,21 @@
+.nav {
+	grid-area: n;
+	padding: 20px;
+}
+.item {
+	font-size: 14px;
+	margin-bottom: 4px;
+	padding: 3px;
+	white-space: nowrap;
+}
+.item:hover {
+	cursor: pointer;
+	background-color: #1f8fff1f;
+}
+.item a {
+	color: blue;
+	text-decoration: none;
+}
+.item a.active {
+	color: #ff10b6;
+}
