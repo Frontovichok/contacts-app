@@ -1,25 +1,24 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import styles from './ChangeContactForm.module.css'
+import styles from './AddNewContactForm.module.css'
 import { connect } from 'react-redux'
-import { saveContactChanges } from '../../../redux/reducers/contacts-reducer'
+import { addNewContact } from '../../../redux/reducers/contacts-reducer'
 
-function ChangeContactForm(props) {
+function AddNewContactForm(props) {
 	const { handleSubmit, register, errors } = useForm()
 	const onSubmit = ({ name, phone, city }) => {
-		props.saveContactChanges(props.id, name, phone, city)
+		props.addNewContact(name, phone, city)
 		props.closeModal()
 	}
 
 	return (
 		<form
-			className={styles.changeContactFormContainer}
+			className={styles.addNewContactFormContainer}
 			onSubmit={handleSubmit(onSubmit)}
 		>
 			<div className={styles.inputContainer}>
 				<input
 					className={styles.inputField}
-					defaultValue={props.name}
 					name="name"
 					placeholder="Имя"
 					ref={register({
@@ -31,7 +30,6 @@ function ChangeContactForm(props) {
 			<div className={styles.inputContainer}>
 				<input
 					className={styles.inputField}
-					defaultValue={props.phone}
 					name="phone"
 					placeholder="Телефон"
 					ref={register({
@@ -45,7 +43,6 @@ function ChangeContactForm(props) {
 			<div className={styles.inputContainer}>
 				<input
 					className={styles.inputField}
-					defaultValue={props.city}
 					name="city"
 					placeholder="Город"
 					ref={register({
@@ -56,14 +53,14 @@ function ChangeContactForm(props) {
 			</div>
 
 			<button className={styles.submitButton} type="submit">
-				Сохранить
+				Добавить
 			</button>
 		</form>
 	)
 }
 
 const dispatchers = {
-	saveContactChanges,
+	addNewContact,
 }
 
-export default connect(() => ({}), dispatchers)(ChangeContactForm)
+export default connect(() => ({}), dispatchers)(AddNewContactForm)

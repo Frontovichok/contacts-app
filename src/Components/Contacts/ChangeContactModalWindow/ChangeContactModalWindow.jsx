@@ -8,8 +8,6 @@ function ChangeContactModalWindow(props) {
 
 	const show = () => setOpenState(true)
 	const close = () => setOpenState(false)
-
-	console.log(props)
 	return (
 		<>
 			<Icon onClick={show} className={styles.customIcon + ' edit outline'} />

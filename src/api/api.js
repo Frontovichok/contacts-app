@@ -37,16 +37,16 @@ export const authAPI = {
 }
 
 export const contactsAPI = {
-	addContact: async (name, phone, city, id) => {
+	addNewContact: async (name, phone, city) => {
 		try {
 			return await instance.post('660/contacts', {
 				name,
 				phone,
 				city,
-				id,
 			})
 		} catch (error) {
 			console.warn(error.response.data)
+			return { error: true, errorMessage: error.response.data }
 		}
 	},
 	deleteContact: async (id) => {
@@ -54,6 +54,7 @@ export const contactsAPI = {
 			return await instance.delete(`660/contacts/${id}`)
 		} catch (error) {
 			console.warn(error.response.data)
+			return { error: true, errorMessage: error.response.data }
 		}
 	},
 	changeContact: async (id, name, phone, city) => {

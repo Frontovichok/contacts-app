@@ -27,17 +27,36 @@ export function getContactsRequest() {
 	}
 }
 
-// export const saveContactChanges = getContactsRequest
-
 export function saveContactChanges(id, name, phone, city) {
 	return async (dispatch) => {
 		const response = await contactsAPI.changeContact(id, name, phone, city)
 		if (!response.error) {
 			dispatch(getContactsRequest())
 		} else {
-			console.warn('try to login or register')
+			console.warn('!!!')
 		}
 	}
 }
 
+export function deleteContact(id) {
+	return async (dispatch) => {
+		const response = await contactsAPI.deleteContact(id)
+		if (!response.error) {
+			dispatch(getContactsRequest())
+		} else {
+			console.warn('!!!')
+		}
+	}
+}
+
+export function addNewContact(name, phone, city) {
+	return async (dispatch) => {
+		const response = await contactsAPI.addNewContact(name, phone, city)
+		if (!response.error) {
+			dispatch(getContactsRequest())
+		} else {
+			console.warn('!!!')
+		}
+	}
+}
 export default contactsReducer

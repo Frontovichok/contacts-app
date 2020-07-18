@@ -25,7 +25,14 @@ function Contact(props) {
 			<div className={styles.field + ' ' + styles.change}>
 				<span className={styles.changeContainer}>
 					<ChangeContactModalWindow {...props} />
-					<Icon className={styles.trashIcon + ' trash alternate outline'} />
+					<div
+						className={styles.deleteContactWrapper}
+						onClick={() => {
+							props.deleteContact(props.id)
+						}}
+					>
+						<Icon className={styles.trashIcon + ' trash alternate outline'} />
+					</div>
 				</span>
 			</div>
 		</div>
