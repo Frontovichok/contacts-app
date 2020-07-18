@@ -19,7 +19,3 @@
 .app-content {
 	grid-area: c;
 }
-/* semantic-ui */
-i.icon:before {
-	color: blue;
-}

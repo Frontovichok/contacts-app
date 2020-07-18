@@ -1,40 +1,44 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { getContacts } from '../../redux/reducers/contacts-reducer'
+import {
+	getContactsRequest,
+	saveContactChanges,
+} from '../../redux/reducers/contacts-reducer'
 import { Redirect } from 'react-router-dom'
 import styles from './Contacts.module.css'
+import Contact from './Contact/Contact'
+import { getContactsSortedByName } from '../../redux/selectors/contacts-selectors'
+import ContactsHeader from './ContactsHeader/ContactsHeader'
 
-function Contacts(props) {
+function Contacts({ contactsSortedByName, getContactsRequest, isAuth }) {
 	useEffect(() => {
-		props.getContacts()
+		getContactsRequest()
 	}, [])
-	if (!props.isAuth) {
+	if (!isAuth) {
 		return <Redirect to="/" />
 	}
 	return (
 		<div className={styles.contactsContainer}>
-			{props.contacts &&
-				[...props.contacts]
-					.sort((cur, next) => {
-						return cur.id - next.id
-					})
-					.map((contact) => (
-						<div key={contact.id}>
-							<span>{contact.id} </span>
-							<span>{contact.name} </span>
-							<span>{contact.phone} </span>
-							<span>{contact.city}</span>
-						</div>
-					))}
+			<ContactsHeader />
+			{contactsSortedByName.map((contact) => (
+				<Contact
+					key={contact.id}
+					{...contact}
+					saveContactChanges={saveContactChanges}
+				/>
+			))}
 		</div>
 	)
 }
 function mapStateToProps(state) {
-	return { contacts: state.contacts.contacts, isAuth: state.auth.isAuth }
+	return {
+		contactsSortedByName: getContactsSortedByName(state),
+		isAuth: state.auth.isAuth,
+	}
 }
 
 const dispatchers = {
-	getContacts,
+	getContactsRequest,
 }
 
 export default connect(mapStateToProps, dispatchers)(Contacts)

@@ -1,0 +1,72 @@
+$firstWordOfNameWidth: 80px;
+$changeWidth: 150px;
+$commonFieldsWidth: calc(
+	(100% - (#{$firstWordOfNameWidth} + #{$changeWidth})) / 3
+);
+
+.contactContainer {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	border-bottom: solid 1px #f0f0f1;
+	&:hover {
+		background-color: #e9f2ff;
+		cursor: pointer;
+	}
+}
+
+.field {
+	> span {
+		padding: 20px 0;
+		display: inline-block;
+		&:hover {
+			cursor: text;
+		}
+	}
+}
+.firstWordOfName {
+	width: $firstWordOfNameWidth;
+	text-align: center;
+	padding-top: 10px;
+}
+.name {
+	width: $commonFieldsWidth;
+}
+.phone {
+	width: $commonFieldsWidth;
+}
+.city {
+	width: $commonFieldsWidth;
+}
+.change {
+	width: $changeWidth;
+	text-align: center;
+}
+.span {
+	padding: 20px 0;
+	display: inline-block;
+}
+.circleWithWord {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: blue;
+	position: relative;
+}
+.wirstWord {
+	font-size: 20px;
+	color: white;
+	transform: translateY(-51%) translateX(-50%);
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}
+.trashIcon {
+	color: #f94a4a;
+}
+.trashIcon:hover {
+	color: #d30000;
+	cursor: pointer;
+}

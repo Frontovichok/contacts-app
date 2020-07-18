@@ -1,0 +1,10 @@
+.customIcon {
+	color: #5181b8;
+}
+.customIcon:hover {
+	color: #15375e;
+	cursor: pointer;
+}
+.modalWindow {
+	text-align: center !important;
+}

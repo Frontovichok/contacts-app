@@ -56,16 +56,16 @@ export const contactsAPI = {
 			console.warn(error.response.data)
 		}
 	},
-	changeContact: async () => {
+	changeContact: async (id, name, phone, city) => {
 		try {
-			return await instance.put('660/contacts/1', {
-				id: 1,
-				name: 'Dima2',
-				phone: 8987,
-				city: 'Moscow city',
+			return await instance.put(`660/contacts/${id}`, {
+				name,
+				phone,
+				city,
 			})
 		} catch (error) {
 			console.warn(error.response.data)
+			return { error: true, errorMessage: error.response.data }
 		}
 	},
 	getContacts: async () => {
