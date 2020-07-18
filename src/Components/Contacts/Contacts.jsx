@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { getContacts } from '../../redux/reducers/contacts-reducer'
 import { Redirect } from 'react-router-dom'
+import styles from './Contacts.module.css'
 
 function Contacts(props) {
 	useEffect(() => {
@@ -11,7 +12,7 @@ function Contacts(props) {
 		return <Redirect to="/" />
 	}
 	return (
-		<div>
+		<div className={styles.contactsContainer}>
 			{props.contacts &&
 				[...props.contacts]
 					.sort((cur, next) => {

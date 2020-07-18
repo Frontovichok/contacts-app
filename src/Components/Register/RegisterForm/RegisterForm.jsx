@@ -1,6 +1,6 @@
 import React from 'react'
 import { reduxForm, Field } from 'redux-form'
-import { Input } from '../../Common/FormControls'
+import { Input, InputPassword } from '../../Common/FormControls'
 import {
 	required,
 	maxLengthCreator,
@@ -45,7 +45,7 @@ function RegisterForm(props) {
 					name="password"
 					type="password"
 					placeholder="Пароль"
-					component={Input}
+					component={InputPassword}
 					validate={[required, maxLength30]}
 				/>
 			</div>

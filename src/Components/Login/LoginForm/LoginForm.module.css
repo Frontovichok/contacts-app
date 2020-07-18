@@ -1,9 +1,9 @@
 .summaryError {
 	color: red;
-	margin: 10px 0;
+	margin: 1px 0;
 }
 .fieldContainer {
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 .loginButton {
 	border-radius: 3px;
@@ -12,4 +12,8 @@
 	text-align: center;
 	border: 0;
 	color: white;
+}
+.loginButton:hover {
+	cursor: pointer;
+	background-color: #365c88;
 }

@@ -5,9 +5,7 @@ const initialState = { isAuth: false }
 
 function authReducer(state = initialState, action) {
 	switch (action.type) {
-		case 'REGISTER':
-			return state
-		case 'LOGIN':
+		case 'SET_IS_AUTH':
 			return { ...state, isAuth: true }
 		default: {
 			return state
@@ -15,9 +13,9 @@ function authReducer(state = initialState, action) {
 	}
 }
 
-function setAuth() {
+function setIsAuth() {
 	return {
-		type: 'LOGIN',
+		type: 'SET_IS_AUTH',
 	}
 }
 
@@ -25,7 +23,7 @@ export function login(email, password) {
 	return async (dispatch) => {
 		const response = await authAPI.login(email, password)
 		if (!response.error) {
-			dispatch(setAuth())
+			dispatch(setIsAuth())
 		} else {
 			dispatch(
 				stopSubmit('login', {
@@ -44,7 +42,7 @@ export function register(firstName, secondName, email, password) {
 			password
 		)
 		if (!response.error) {
-			dispatch(setAuth())
+			dispatch(setIsAuth())
 		} else {
 			dispatch(
 				stopSubmit('register', {
