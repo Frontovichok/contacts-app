@@ -1,5 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Скрин приложения:
+![Скрин приложения](https://github.com/Frontovichok/contacts-app/blob/master/public/app-screenshot.png)
+
 Для запуска приложения:
 
 1. Клонируем репозиторий командой:
