@@ -6,6 +6,6 @@ export function getContacts(state) {
 
 export const getContactsSortedByName = createSelector(getContacts, (contacts) =>
 	[...contacts].sort((cur, next) => {
-		return cur.name - next.name
+		return cur.name > next.name ? 1 : -1
 	})
 )

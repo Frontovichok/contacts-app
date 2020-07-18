@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import {
 	getContactsRequest,
@@ -11,6 +11,7 @@ import Contact from './Contact/Contact'
 import { getContactsSortedByName } from '../../redux/selectors/contacts-selectors'
 import ContactsHeader from './ContactsHeader/ContactsHeader'
 import AddNewContactModalWindow from './AddNewContactModalWindow/AddNewContactModalWindow'
+import SearchContacts from './SearchContacts/SearchContacts'
 
 function Contacts({
 	contactsSortedByName,
@@ -18,16 +19,27 @@ function Contacts({
 	deleteContact,
 	isAuth,
 }) {
+	let [searchQuery, setSearchQuery] = useState('')
 	useEffect(() => {
 		getContactsRequest()
 	}, [])
 	if (!isAuth) {
 		return <Redirect to="/" />
 	}
+	let contacts =
+		searchQuery.length > 0
+			? contactsSortedByName.filter(
+					({ name }) =>
+						name.slice(0, searchQuery.length).toLowerCase() ===
+						searchQuery.toLocaleLowerCase()
+			  )
+			: contactsSortedByName
+
 	return (
 		<div className={styles.contactsContainer}>
+			<SearchContacts setSearchQuery={setSearchQuery} />
 			<ContactsHeader />
-			{contactsSortedByName.map((contact) => (
+			{contacts.map((contact) => (
 				<Contact key={contact.id} {...contact} deleteContact={deleteContact} />
 			))}
 			<div className={styles.addContactContainer}>

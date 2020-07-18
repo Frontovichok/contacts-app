@@ -37,6 +37,14 @@ export const authAPI = {
 }
 
 export const contactsAPI = {
+	getContacts: async () => {
+		try {
+			return await instance.get('660/contacts')
+		} catch (error) {
+			console.warn(error.response.data)
+			return { error: true, errorMessage: error.response.data }
+		}
+	},
 	addNewContact: async (name, phone, city) => {
 		try {
 			return await instance.post('660/contacts', {
@@ -64,14 +72,6 @@ export const contactsAPI = {
 				phone,
 				city,
 			})
-		} catch (error) {
-			console.warn(error.response.data)
-			return { error: true, errorMessage: error.response.data }
-		}
-	},
-	getContacts: async () => {
-		try {
-			return await instance.get('660/contacts')
 		} catch (error) {
 			console.warn(error.response.data)
 			return { error: true, errorMessage: error.response.data }

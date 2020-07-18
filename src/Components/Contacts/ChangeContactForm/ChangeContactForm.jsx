@@ -37,7 +37,7 @@ function ChangeContactForm(props) {
 					ref={register({
 						required: 'Required',
 						minLength: 6,
-						maxLength: 17,
+						maxLength: 20,
 					})}
 				/>
 				{errors.phone && errors.phone.message}
