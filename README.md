@@ -8,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 1. Клонируем репозиторий командой:
 
 ```bash
-git clone git@github.com:Frontovichok/contacts-app.git
+git clone https://github.com/Frontovichok/contacts-app.git
 ```
 
 2. Заходим в созданную папку (contacts-app) и устанавливаем зависимости командой:
